@@ -21,9 +21,9 @@ class UnionFind {
         ll x_class = find(x);
         ll y_class = find(y);
         if(x_class == y_class) return;
-        if(sizes[x_class] < sizes[y_class])std::swap(x,y);
+        if(sizes[x_class] < sizes[y_class])std::swap(x_class, y_class);
         parent[y_class] = x_class;
-        sizes[x_class] = sizes[y_class];
+        sizes[x_class] += sizes[y_class];
         sizes[y_class] = 0;
     }
     bool same(ll x, ll y){
