@@ -28,7 +28,10 @@ Graph Algorithms
 |3c|Strongly Connected Components|StronglyConnectedComponents|
 |4a|Cycle Detection for a Directed Graph|StronglyConnectedComponents|
 |4b|Topological Sort|StronglyConnectedComponents|
-|5a|---||
-|5b|---||
+|5a|Diameter of a Tree|(DiameterHeight)|
+|5b|Height of a Tree|(DiameterHeight)|
 |5c|---||
+|5d|||
+|5e|||
+||||
 ||||
