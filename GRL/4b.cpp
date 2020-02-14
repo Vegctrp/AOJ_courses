@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<iterator>
 #include<queue>
+#include<set>
 
 using namespace std;
 typedef long long ll;
@@ -23,6 +24,7 @@ class Graph{
     std::vector<std::vector<std::pair<ll,ll>>> list;  // 隣接リスト
     //std::vector<std::vector<ll>> matrix; // 隣接行列
 
+    Graph() : isDirected(false){ init(0); }
     Graph(ll n, bool isDirected=false) : isDirected(isDirected) { init(n); }
     void init(ll n){
         v=n;
@@ -52,6 +54,8 @@ class StronglyConnectedComponents{  // 強連結成分分解
     std::vector<ll> order; // 帰りがけ順の並び
     std::vector<ll> used;
     std::vector<ll> cmp;   // 属する強連結成分のトポロジカル順序
+    std::vector<std::vector<ll>> nodes; // sccの各ノードに属する頂点集合
+    Graph Gscc;    // 強連結成分を縮約したDAG 各vに属する頂点集合はnodes[v]
     ll node_num;
 
     StronglyConnectedComponents(Graph G) : G(G){
@@ -86,6 +90,22 @@ class StronglyConnectedComponents{  // 強連結成分分解
         ll ptr=0;
         for(ll i : order)if(cmp[i]==-1) rdfs(i,ptr++);
         node_num = ptr;
+
+        nodes.assign(node_num, std::vector<ll>());
+        for(ll i=0; i<G.v; i++)nodes[cmp[i]].push_back(i);
+
+        std::set<std::pair<ll,ll>> connect;
+        Gscc = Graph(node_num, true);
+        for(auto i : G.edges){
+            ll x = cmp[i.from];
+            ll y = cmp[i.to];
+            if(x==y)continue;
+            if(connect.count({x,y}))continue;
+            connect.emplace(x,y);
+        }
+        for(auto i : connect){
+            Gscc.connect(i.first, i.second);
+        }
     }
     ll operator[](ll k){
         return cmp[k];
@@ -94,7 +114,6 @@ class StronglyConnectedComponents{  // 強連結成分分解
 
 int main(){
     ll v,e,s,t;
-    ll q,u,vv;
     cin >> v >> e;
     Graph G(v, true);
     REP(i,e){
@@ -103,12 +122,11 @@ int main(){
     }
     StronglyConnectedComponents scc(G);
     scc.build();
-    for(auto i : scc.cmp)cout << "###" << i << endl;
-    cout << "##" << scc.node_num << endl;
-    cin >> q;
-    REP(i,q){
-        cin >> u >> vv;
-        if(scc[u]==scc[vv])cout << "1" << endl;
-        else cout << "0" << endl;
+    //for(auto i : scc.cmp)cout << "###" << i << endl;
+    //cout << "##" << scc.node_num << endl;
+    for(auto i : scc.nodes){
+        if(i.size()!=1)cout << "###" << endl;
+        cout << i[0] << endl;
     }
+    return 0;
 }

@@ -26,8 +26,8 @@ Graph Algorithms
 |3a|Articulation Points| lowlink|
 |3b|Bridges|lowlink|
 |3c|Strongly Connected Components|StronglyConnectedComponents|
-|4a|---||
-|4b|---||
+|4a|Cycle Detection for a Directed Graph|StronglyConnectedComponents|
+|4b|Topological Sort|StronglyConnectedComponents|
 |5a|---||
 |5b|---||
 |5c|---||
