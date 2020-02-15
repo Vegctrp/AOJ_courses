@@ -51,6 +51,6 @@ Graph Algorithms
 |5c|Lowest Common Ancestor|LowestCommonAncestor|
 |5d|---| |
 |5e|---| |
-|6a|---| |
+|6a|Maximum Flow| FordFulkerson |
 |6b|---| |
 |7a|---| |
