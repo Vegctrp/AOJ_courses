@@ -53,4 +53,4 @@ Graph Algorithms
 |5e|---| |
 |6a|Maximum Flow| FordFulkerson, Dinic |
 |6b|Minimum Cost Flow| PrimalDual |
-|7a|---| |
+|7a|Bipartite Matching| HopcroftKarp |
