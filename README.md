@@ -54,3 +54,15 @@ Graph Algorithms
 |6a|Maximum Flow| FordFulkerson, Dinic |
 |6b|Minimum Cost Flow| PrimalDual |
 |7a|Bipartite Matching| HopcroftKarp |
+
+## CGL
+Computational Geometry
+
+## NTL
+Number Theory
+
+## DPL
+Discrete Optimization Problems
+
+## ITP1
+Introduction to Programming 1
