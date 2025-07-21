@@ -1,0 +1,18 @@
+{
+    "[*]": {
+        "editor.tabSize": 4
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAfll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit",
+        },
+        "editor.formatOnSave": true,
+    },
+    "ruff.path": ["./.venv/bin/ruff"],
+    "mypy-type-checker.path": ["./.venv/bin/mypy"],
+}
